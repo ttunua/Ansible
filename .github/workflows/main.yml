@@ -26,9 +26,6 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
       - name: Tailscale
         uses: tailscale/github-action@v1
         with:
@@ -48,13 +45,9 @@ jobs:
       - name: Run playbook
         uses: dawidd6/action-ansible-playbook@v2
         with:
-          # Optional, directory where playbooks live
           directory: ./
-          # Required, playbook filepath
           playbook: update.yml
-          # Optional, SSH private key
           key: ${{secrets.SSH_KEY}}
-          # Optional, literal inventory file contents
           options: |
             --inventory hosts.yml
             --user pi
