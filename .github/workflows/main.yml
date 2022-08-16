@@ -59,8 +59,8 @@ jobs:
                     raspberrypi:
                         ansible_host: 100.117.189.4
           # Optional, SSH known hosts file content
-          known_hosts: ~./ssh/known_hosts
+          known_hosts: "~/.ssh/known_hosts"
           options: |
-            --inventory .hosts
-            --extra-vars hello=ANSIBLE_PASSWORD
+            --inventory hosts.yml
+            --extra-vars ansible_password=ANSIBLE_PASSWORD
             
