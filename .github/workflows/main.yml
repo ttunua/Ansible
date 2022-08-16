@@ -26,16 +26,13 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
-      
       - name: Tailscale
         uses: tailscale/github-action@v1
         with:
           authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
-      
       - name: Add SSH key
         id: ssh
         env:
@@ -46,7 +43,6 @@ jobs:
           ssh-keyscan $MACHINE_IP >> ~/.ssh/known_hosts
           printf "%s" "$SSH_KEY" > ~/.ssh/key
           chmod 600 ~/.ssh/key    
-          
       - name: Run playbook
         uses: dawidd6/action-ansible-playbook@v2
         with:
@@ -62,4 +58,4 @@ jobs:
           known_hosts: ~./ssh/known_hosts
           options: |
             --inventory .hosts
-            --extra-vars hello=there
+            --extra-vars hello=ANSIBLE_PASSWORD
