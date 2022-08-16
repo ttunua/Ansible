@@ -49,6 +49,5 @@ jobs:
           playbook: update.yml
           key: ${{secrets.SSH_KEY}}
           options: |
-            --inventory hosts.yml
             --user pi
             
