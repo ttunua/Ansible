@@ -33,3 +33,5 @@ jobs:
           directory: ./
           playbook: update.yml
           key: ${{secrets.SSH_KEY}}
+          options: |
+            --user pi
