@@ -8,5 +8,3 @@
       apt:
         upgrade: dist
         autoremove: yes
-
-
