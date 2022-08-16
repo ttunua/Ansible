@@ -63,5 +63,5 @@ jobs:
           known_hosts: .known_hosts
           options: |
             --inventory hosts.yml
-            --extra-vars ansible_password=ANSIBLE_PASSWORD
+            --user pi
             
