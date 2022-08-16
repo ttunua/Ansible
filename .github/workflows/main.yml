@@ -19,7 +19,9 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
+    env:
+      MACHINE: raspberrypi
+  
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -33,3 +35,46 @@ jobs:
         uses: tailscale/github-action@v1
         with:
           authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
+      
+      - name: Add SSH key
+        id: ssh
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          MACHINE_IP="$(tailscale ip -6 $MACHINE)"
+          ssh-keyscan $MACHINE_IP >> ~/.ssh/known_hosts
+          printf "%s" "$SSH_KEY" > ~/.ssh/key
+          chmod 600 ~/.ssh/key    
+        
+      - name: Build tarball and ship it
+        id: tarball
+        run: |
+          TIME=$(date +%Y%m%d-%H%M%S)
+          
+          mkdir -p static/css
+          MACHINE_IP="$(tailscale ip -6 $MACHINE)"
+          
+          ansible-playbook update.yml --user pi --extra-vars ansible_password=
+          
+      - name: Run playbook
+        uses: dawidd6/action-ansible-playbook@v2
+        with:
+          # Required, playbook filepath
+          playbook: deploy.yml
+          # Optional, directory where playbooks live
+          directory: ./
+          # Optional, SSH private key
+          key: ${{secrets.SSH_PRIVATE_KEY}}
+          # Optional, literal inventory file contents
+          inventory: |
+            [all]
+            example.com
+
+            [group1]
+            example.com
+          # Optional, SSH known hosts file content
+          known_hosts: ~./ssh/known_hosts
+          options: |
+            --inventory .hosts
+            --extra-vars hello=there
