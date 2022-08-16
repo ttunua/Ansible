@@ -55,11 +55,6 @@ jobs:
           # Optional, SSH private key
           key: ${{secrets.SSH_KEY}}
           # Optional, literal inventory file contents
-          inventory: |
-              servers:
-                  hosts:
-                    raspberrypi:
-                        ansible_host: 100.117.189.4
           options: |
             --inventory hosts.yml
             --user pi
