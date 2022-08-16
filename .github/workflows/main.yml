@@ -27,11 +27,11 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      - name: Tailscale
+      - name: Initialise Tailscale
         uses: tailscale/github-action@v1
         with:
           authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
-      - name: Run playbook
+      - name: Run Ansible Playbook
         uses: dawidd6/action-ansible-playbook@v2
         with:
           directory: ./
