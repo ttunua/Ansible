@@ -1,0 +1,12 @@
+---
+- name: Update packages
+  hosts: all
+  connection: ssh
+  become: yes
+  tasks:
+    - name: Apt dist upgrade
+      apt:
+        upgrade: dist
+        autoremove: yes
+
+
