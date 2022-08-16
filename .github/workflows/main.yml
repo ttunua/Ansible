@@ -46,33 +46,18 @@ jobs:
           ssh-keyscan $MACHINE_IP >> ~/.ssh/known_hosts
           printf "%s" "$SSH_KEY" > ~/.ssh/key
           chmod 600 ~/.ssh/key    
-        
-      - name: Build tarball and ship it
-        id: tarball
-        run: |
-          TIME=$(date +%Y%m%d-%H%M%S)
-          
-          mkdir -p static/css
-          MACHINE_IP="$(tailscale ip -6 $MACHINE)"
-          
-          ansible-playbook update.yml --user pi --extra-vars ansible_password=
           
       - name: Run playbook
         uses: dawidd6/action-ansible-playbook@v2
         with:
           # Required, playbook filepath
-          playbook: deploy.yml
+          playbook: update.yml
           # Optional, directory where playbooks live
           directory: ./
           # Optional, SSH private key
           key: ${{secrets.SSH_PRIVATE_KEY}}
           # Optional, literal inventory file contents
-          inventory: |
-            [all]
-            example.com
-
-            [group1]
-            example.com
+          inventory: hosts.yml
           # Optional, SSH known hosts file content
           known_hosts: ~./ssh/known_hosts
           options: |
