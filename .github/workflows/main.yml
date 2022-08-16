@@ -60,8 +60,6 @@ jobs:
                   hosts:
                     raspberrypi:
                         ansible_host: 100.117.189.4
-          # Optional, SSH known hosts file content
-          known_hosts: .known_hosts
           options: |
             --inventory hosts.yml
             --user pi
