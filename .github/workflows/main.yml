@@ -40,8 +40,6 @@ jobs:
           ssh-keyscan $MACHINE_IP >> ~/.ssh/known_hosts
           printf "%s" "$SSH_KEY" > ~/.ssh/key
           chmod 600 ~/.ssh/key
-          cp ~/.ssh/known_hosts .
-          cat ~/.ssh/known_hosts
       - name: Run playbook
         uses: dawidd6/action-ansible-playbook@v2
         with:
