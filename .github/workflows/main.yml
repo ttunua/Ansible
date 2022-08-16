@@ -30,15 +30,6 @@ jobs:
         uses: tailscale/github-action@v1
         with:
           authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
-      - name: Add SSH key
-        id: ssh
-        env:
-          SSH_KEY: ${{ secrets.SSH_KEY }}
-        run: |
-          mkdir -p ~/.ssh
-          MACHINE_IP="$(tailscale ip -6 $MACHINE)"
-          printf "%s" "$SSH_KEY" > ~/.ssh/key
-          chmod 600 ~/.ssh/key
       - name: Run playbook
         uses: dawidd6/action-ansible-playbook@v2
         with:
