@@ -1,5 +1,6 @@
 ---
 - name: Update packages
+  hosts: all
   connection: ssh
   become: yes
   tasks:
