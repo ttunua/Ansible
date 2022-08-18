@@ -38,4 +38,4 @@ jobs:
           playbook: update.yml
           key: ${{secrets.SSH_KEY}}
           options: |
-            --user ${{ username }}
+            --user ${{ inputs.username }}
