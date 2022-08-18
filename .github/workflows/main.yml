@@ -1,4 +1,4 @@
-name: run-ansible
+name: ansible
 
 
 # Controls when the workflow will run
