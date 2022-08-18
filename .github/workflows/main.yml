@@ -44,4 +44,4 @@ jobs:
           key: ${{secrets.SSH_KEY}}
           options: |
             --user ${{ inputs.username }}
-            --hosts ${{ inputs.host }}
+            --extra-vars hosts=${{ inputs.host }}
