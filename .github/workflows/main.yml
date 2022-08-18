@@ -42,6 +42,8 @@ jobs:
           directory: ./
           playbook: update.yml
           key: ${{secrets.SSH_KEY}}
+          inventory: |
+            [all]
+            ${{ inputs.host }}
           options: |
             --user ${{ inputs.username }}
-            --extra-vars hosts=${{ inputs.host }}
