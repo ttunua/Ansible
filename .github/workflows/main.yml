@@ -9,7 +9,7 @@ on:
         default: 'HOST'
         required: true
         type: string
-      username:
+      user:
         description: 'Username'
         default: 'USERNAME'
         required: true
@@ -42,4 +42,4 @@ jobs:
             [all]
             ${{ inputs.host }}
           options: |
-            --user ${{ inputs.username }}
+            --user ${{ inputs.user }}
