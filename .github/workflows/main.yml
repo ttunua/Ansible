@@ -1,5 +1,6 @@
 name: CI
 
+
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
@@ -10,10 +11,17 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      username:
+        description: 'A username passed from the caller workflow'
+        default: 'foo'
+        required: true
+        type: string
 
 # assumes that the ssh key used here already has its pub key added to the server we are running against
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+
   # This workflow contains a single job
   run_ansible_over_tailscale:
     # The type of runner that the job will run on
@@ -34,4 +42,4 @@ jobs:
           playbook: update.yml
           key: ${{secrets.SSH_KEY}}
           options: |
-            --user pi
+            --user ${{ username }}
