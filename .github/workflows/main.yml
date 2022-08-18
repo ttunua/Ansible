@@ -1,17 +1,18 @@
+---
 name: ansible
 
 # Controls when the workflow will run
 on:
   workflow_dispatch:
     inputs:
-      host:
-        description: 'Host'
-        default: 'HOST'
-        required: true
-        type: string
       user:
         description: 'Username'
         default: 'USERNAME'
+        required: true
+        type: string
+      host:
+        description: 'Host'
+        default: 'HOST'
         required: true
         type: string
 
