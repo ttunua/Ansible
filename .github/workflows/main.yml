@@ -8,7 +8,7 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
     inputs:
-      hostname:
+      host:
         description: 'A hostname passed from the caller workflow'
         default: 'bar'
         required: true
@@ -44,3 +44,4 @@ jobs:
           key: ${{secrets.SSH_KEY}}
           options: |
             --user ${{ inputs.username }}
+            --hosts ${{ inputs.host }}
