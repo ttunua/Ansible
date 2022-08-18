@@ -9,13 +9,13 @@ on:
   workflow_dispatch:
     inputs:
       host:
-        description: 'A hostname passed from the caller workflow'
-        default: 'bar'
+        description: 'Host'
+        default: 'HOST'
         required: true
         type: string
       username:
-        description: 'A username passed from the caller workflow'
-        default: 'foo'
+        description: 'Username'
+        default: 'USERNAME'
         required: true
         type: string
 
