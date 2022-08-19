@@ -1,7 +1,6 @@
 ---
 name: run_playbook
 
-# Controls when the workflow will run
 on:
   workflow_dispatch:
     inputs:
@@ -24,15 +23,10 @@ on:
 # assumes that the ssh key used here already has its pub key added to the server we are running against
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-
-  # This workflow contains a single job
   run_ansible_over_tailscale:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       - name: Connect to Tailnet
         uses: tailscale/github-action@v1
