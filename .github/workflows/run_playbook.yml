@@ -43,7 +43,7 @@ jobs:
         with:
           directory: ./
           playbook: ${{ inputs.playbook }}.yml
-          key: ${{secrets.SSH_KEY}}
+          key: ${{ secrets.SSH_KEY }}
           inventory: |
             [all]
             ${{ inputs.host }}
