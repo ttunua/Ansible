@@ -1,5 +1,5 @@
 ---
-name: run-update-playbook
+name: run_update_playbook
 
 # Controls when the workflow will run
 on:
