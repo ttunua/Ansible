@@ -21,7 +21,6 @@ on:
         type: string
 
 # assumes that the ssh key used here already has its pub key added to the server we are running against
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   run_ansible_over_tailscale:
     runs-on: ubuntu-latest
