@@ -38,7 +38,7 @@ jobs:
         uses: tailscale/github-action@v1
         with:
           authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
-      - name: Run "${{ inputs.playbook }}" Playbook
+      - name: Run ${{ inputs.playbook }} Playbook
         uses: dawidd6/action-ansible-playbook@v2
         with:
           directory: ./
