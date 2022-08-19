@@ -5,17 +5,17 @@ on:
   workflow_dispatch:
     inputs:
       user:
-        description: 'Username'
-        default: 'USERNAME'
+        description: 'Run ansible as this user'
+        default: 'USER'
         required: true
         type: string
       host:
-        description: 'Host'
+        description: 'Host to run ansible against'
         default: 'HOST'
         required: true
         type: string
       playbook:
-        description: 'Playbook'
+        description: 'Ansible playbook to run'
         default: 'PLAYBOOK'
         required: true
         type: string
