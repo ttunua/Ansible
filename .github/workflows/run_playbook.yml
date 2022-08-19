@@ -26,10 +26,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      
       - name: Connect to Tailnet
         uses: tailscale/github-action@v1
         with:
           authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
+
       - name: Run ${{ inputs.playbook }} Playbook against ${{ inputs.host }}
         uses: dawidd6/action-ansible-playbook@v2
         with:
