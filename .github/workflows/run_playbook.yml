@@ -1,5 +1,5 @@
 ---
-name: ansible
+name: run_playbook
 
 # Controls when the workflow will run
 on:
