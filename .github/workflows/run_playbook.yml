@@ -1,5 +1,5 @@
 ---
-name: run_playbook
+name: apt-update
 
 # Controls when the workflow will run
 on:
