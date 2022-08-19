@@ -1,5 +1,5 @@
 ---
-name: run_update_playbook
+name: run_playbook
 
 # Controls when the workflow will run
 on:
@@ -13,6 +13,11 @@ on:
       host:
         description: 'Host'
         default: 'HOST'
+        required: true
+        type: string
+      playbook:
+        description: 'Playbook'
+        default: 'PLAYBOOK'
         required: true
         type: string
 
@@ -37,7 +42,7 @@ jobs:
         uses: dawidd6/action-ansible-playbook@v2
         with:
           directory: ./
-          playbook: update.yml
+          playbook: ${{ inputs.playbook }}.yml
           key: ${{secrets.SSH_KEY}}
           inventory: |
             [all]
