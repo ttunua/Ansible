@@ -1,5 +1,5 @@
 ---
-name: run_playbook
+name: schedule_playbook_run
 
 on:
   workflow_dispatch:
