@@ -22,7 +22,7 @@ on:
         required: true
         type: string
 jobs:
-  run_ansible_over_tailscale:
+  update:
       uses: ./.github/workflows/run_playbook.yml
       with:
         user: ${{ inputs.user }}
