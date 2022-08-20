@@ -1,5 +1,5 @@
 ---
-name: run_playbook
+name: ansible
 
 on:
   workflow_call:
