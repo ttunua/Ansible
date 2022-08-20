@@ -6,7 +6,7 @@ on:
     - cron: '11 4 * * *'
 jobs:
   update:
-      uses: ./.github/workflows/ansible.yml
+      uses: ./.github/workflows/main.yml
       with:
         user: "pi"
         host: "raspberrypi"
