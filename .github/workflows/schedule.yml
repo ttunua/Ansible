@@ -21,13 +21,9 @@ on:
         type: string
 jobs:
   run_ansible_over_tailscale:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/workflows/run_playbook.yml@main
-        with:
-          user: ${{ inputs.user }}
-          host: ${{ inputs.host }}
-          playbook: ${{ inputs.playbook }}
+      uses: ./.github/workflows/run_playbook.yml
+      with:
+        user: ${{ inputs.user }}
+        host: ${{ inputs.host }}
+        playbook: ${{ inputs.playbook }}
       
