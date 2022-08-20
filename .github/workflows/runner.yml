@@ -1,0 +1,31 @@
+---
+name: schedule_playbook_run
+
+on:
+  schedule:
+    - cron: '11 4 * * *'
+  workflow_dispatch:
+    inputs:
+      user:
+        description: 'Run ansible as this user'
+        default: 'USER'
+        required: true
+        type: string
+      host:
+        description: 'Host to run ansible against'
+        default: 'HOST'
+        required: true
+        type: string
+      playbook:
+        description: 'Ansible playbook to run'
+        default: 'PLAYBOOK'
+        required: true
+        type: string
+jobs:
+  update:
+      uses: ./.github/workflows/run_playbook.yml
+      with:
+        user: ${{ inputs.user }}
+        host: ${{ inputs.host }}
+        playbook: ${{ inputs.playbook }}
+      secrets: inherit
