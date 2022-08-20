@@ -1,0 +1,32 @@
+---
+name: run_playbook
+
+on:
+  workflow_dispatch:
+    inputs:
+      user:
+        description: 'Run ansible as this user'
+        default: 'USER'
+        required: true
+        type: string
+      host:
+        description: 'Host to run ansible against'
+        default: 'HOST'
+        required: true
+        type: string
+      playbook:
+        description: 'Ansible playbook to run'
+        default: 'PLAYBOOK'
+        required: true
+        type: string
+jobs:
+  run_ansible_over_tailscale:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: ./.github/workflows/run_playbook.yml
+        with:
+          username: ${{ inputs.user }}
+          host: ${{ inputs.host }}
+          playbook: ${{ inputs.playbook }}
+      
