@@ -26,7 +26,5 @@ jobs:
         user: ${{ inputs.user }}
         host: ${{ inputs.host }}
         playbook: ${{ inputs.playbook }}
-      secrets:
-        authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
-        key: ${{ secrets.SSH_KEY }}
+      secrets: inherit
       
