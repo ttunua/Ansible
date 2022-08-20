@@ -1,9 +1,7 @@
 ---
-name: schedule_playbook_run
+name: runner
 
 on:
-  schedule:
-    - cron: '11 4 * * *'
   workflow_dispatch:
     inputs:
       user:
