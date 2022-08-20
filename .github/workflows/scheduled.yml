@@ -8,8 +8,8 @@ jobs:
   update:
       uses: ./.github/workflows/ansible.yml
       with:
-        user: ${{ inputs.user }}
-        host: ${{ inputs.host }}
-        playbook: ${{ inputs.playbook }}
+        user: "pi"
+        host: "raspberrypi"
+        playbook: "update"
       secrets: inherit
       
