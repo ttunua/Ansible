@@ -2,6 +2,17 @@
 name: run_playbook
 
 on:
+  workflow_call:
+      inputs:
+        user:
+          required: true
+          type: string
+        host:
+          required: true
+          type: string
+        playbook:
+          required: true
+          type: string
   workflow_dispatch:
     inputs:
       user:
