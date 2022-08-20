@@ -15,7 +15,7 @@ on:
           type: string
 
 jobs:
-  run_ansible_over_tailscale:
+  run_ansible:
     runs-on: ubuntu-latest
 
     steps:
