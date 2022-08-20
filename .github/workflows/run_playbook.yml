@@ -1,5 +1,5 @@
 ---
-name: runner
+name: run_playbook
 
 on:
   workflow_dispatch:
