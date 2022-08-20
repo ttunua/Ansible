@@ -4,7 +4,7 @@ Proof of concept: Running ansible playbooks against Tailscale hosts using github
 
 Uses [action-ansible-playbook](https://github.com/dawidd6/action-ansible-playbook) and [Tailscale github action](https://github.com/tailscale/github-action)
 
-workflows/ansible.yml 
+workflows/main.yml 
 
 - workflow that connects to Tailscale and runs ansible. This reusable workflow is extended by run_playbook and scheduled
 
