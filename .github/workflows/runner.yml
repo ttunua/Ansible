@@ -21,7 +21,7 @@ on:
         type: string
 jobs:
   update:
-      uses: ./.github/workflows/run_playbook.yml
+      uses: ./.github/workflows/ansible.yml
       with:
         user: ${{ inputs.user }}
         host: ${{ inputs.host }}
