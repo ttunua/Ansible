@@ -31,7 +31,6 @@ jobs:
         with:
           directory: ./
           playbook: ${{ inputs.playbook }}.yml
-          key: ${{ secrets.SSH_KEY }} # assumes that the corresponding pub key was added to the host we are running against
           inventory: |
             [all]
             ${{ inputs.host }}
