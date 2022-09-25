@@ -14,4 +14,4 @@ workflows/run_playbook.yml
 
 workflows/scheduled.yml
 
-- workflow that runs a set ansible playbook as a specified user against a host on a cron schedule
+- workflow that runs a set ansible playbook as a specified user against a set of hosts on a cron schedule
