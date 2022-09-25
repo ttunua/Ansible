@@ -5,14 +5,14 @@ on:
   schedule:
     - cron: '11 4 * * *'
 jobs:
-  update:
+  update_raspberrypi:
       uses: ./.github/workflows/main.yml
       with:
         user: "pi"
         host: "raspberrypi"
         playbook: "update"
       secrets: inherit
-  update2:
+  update_pizero2w:
       uses: ./.github/workflows/main.yml
       with:
         user: "pi"
