@@ -6,7 +6,7 @@ on:
   schedule:
     - cron: '11 4 * * *'
 jobs:
-  update_raspberrypi:
+  update:
     strategy:
       matrix:
         host: [raspberrypi, pizero2w]
