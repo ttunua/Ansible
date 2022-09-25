@@ -6,16 +6,12 @@ on:
     - cron: '11 4 * * *'
 jobs:
   update_raspberrypi:
-      uses: ./.github/workflows/main.yml
-      with:
-        user: "pi"
-        host: "raspberrypi"
-        playbook: "update"
-      secrets: inherit
-  update_pizero2w:
-      uses: ./.github/workflows/main.yml
-      with:
-        user: "pi"
-        host: "pizero2w"
-        playbook: "update"
-      secrets: inherit
+    strategy:
+      matrix:
+        host: [raspberrypi, pizero2w]
+    uses: ./.github/workflows/main.yml
+    with:
+      user: "pi"
+      host: ${{ matrix.host }}
+      playbook: "update"
+    secrets: inherit
