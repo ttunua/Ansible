@@ -12,4 +12,10 @@ jobs:
         host: "raspberrypi"
         playbook: "update"
       secrets: inherit
-      
+  update2:
+      uses: ./.github/workflows/main.yml
+      with:
+        user: "pi"
+        host: "pizero2w"
+        playbook: "update"
+      secrets: inherit
