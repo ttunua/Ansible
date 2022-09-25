@@ -14,5 +14,5 @@ jobs:
     with:
       user: "pi"
       host: ${{ matrix.host }}
-      playbook: ${{ github.job }}
+      playbook: ${{ github.jobs.update.name }}
     secrets: inherit
