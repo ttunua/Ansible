@@ -8,6 +8,7 @@ on:
 jobs:
   update:
     strategy:
+      fail-fast: false
       matrix:
         host: [raspberrypi, pizero2w]
     uses: ./.github/workflows/main.yml
