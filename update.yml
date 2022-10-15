@@ -6,6 +6,6 @@
   tasks:
     - name: Apt dist upgrade
       apt:
-        update_cache: true
+        update_cache: yes
         upgrade: dist
         autoremove: yes
