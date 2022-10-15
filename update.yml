@@ -2,7 +2,7 @@
 - name: Update packages
   hosts: all
   connection: ssh
-  become: yes
+  become: true
   tasks:
     - name: Apt dist upgrade
       apt:
