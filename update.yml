@@ -9,3 +9,8 @@
         update_cache: yes
         upgrade: dist
         autoremove: yes
+    - name: Update Tailscale
+      apt:
+        name: tailscale
+        state: latest
+        update_cache: yes
