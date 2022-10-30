@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        host: [raspberrypi, pizero2w, pizero2w-1, pizero2w-2]
+        host: [raspberrypi, test-vm, vpn-1, aws-instance, aws-instance-2, ubuntupi4, ubuntu-pizero2w, ubuntu-server, tailscale-test, pizero2w-1, pizero2w-2]
     uses: ./.github/workflows/main.yml
     with:
       user: "pi"
