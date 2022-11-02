@@ -1,8 +1,8 @@
 ---
-# Test we can logon to 'webservers' and execute python with json lib.
-# ansible webservers -m ansible.builtin.ping
-
-- hosts: all  
-  become: yes  
+- name: ping test
+  hosts: all
+  connection: ssh
+  become: true
   tasks:
-   - ping
+    - name: ping
+      action: ping
