@@ -10,11 +10,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        host: [raspberrypi, test-vm, vpn-1, aws-instance, aws-instance-2, ubuntupi4, ubuntu-pizero2w, ubuntu-server, tailscale-test, pizero2w-1, pizero2w-2]
-        user: [pi, ubuntu, ubuntu, ubuntu, ubuntu, ubuntu, ubuntu, ubuntu, ubuntu, pi, pi]
+        host: [raspberrypi]
     uses: ./.github/workflows/main.yml
     with:
-      user: ${{ matrix.user }}
+      user: "pi"
       host: ${{ matrix.host }}
       playbook: "update"
     secrets: inherit
