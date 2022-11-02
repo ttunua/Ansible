@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v3
       
       - name: Connect to Tailnet
-        uses: tailscale/github-action@latest
+        uses: tailscale/github-action@v
         with:
           authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
 
