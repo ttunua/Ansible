@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        host: [raspberrypi]
+        host: [raspberrypi, pizero2w-1, pizero2w-2]
     uses: ./.github/workflows/main.yml
     with:
       user: "pi"
