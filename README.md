@@ -15,3 +15,9 @@ workflows/run_playbook.yml
 workflows/scheduled.yml
 
 - workflow that runs a set ansible playbook as a specified user against a set of hosts on a cron schedule
+
+
+# Setup
+
+- [Create](https://login.tailscale.com/admin/settings/keys) reusable ephemeral auth key and store it as a github secret
+- Change the device names, playbooks etc
